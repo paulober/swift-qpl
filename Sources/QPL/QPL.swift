@@ -72,6 +72,9 @@ public class QPLReader {
             throw QPLReaderError.failedToRead
         }
         
+        // delete unpacked zip
+        ensureCleanup(targetPath: target.relativePath)
+        
         return QPLFile(contentObject: qplContentObject, questestInterop: questestInterop)
     }
     

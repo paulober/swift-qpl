@@ -10,4 +10,5 @@ import Foundation
     let file = try qplReader.readZip(zipFileURI: fp)
     print(file.questestInterop.items.count)
     assert(file.questestInterop.items.count > 0)
+    print(file.contentObject.metaData.general.title)
 }
