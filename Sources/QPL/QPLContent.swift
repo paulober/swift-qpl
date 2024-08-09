@@ -20,12 +20,12 @@
 
 // aka. ContentObject
 public struct QPLContentObject: Codable {
-    @Attribute var type: String
-    @Element var metaData: MetaData
-    @Element var settings: Settings
-    @Element var pageObjs: [PageObject]
-    @Element var mediaObj: MediaObject
-    @Element var questionSkillAssignments: QuestionSkillAssignments
+    @Attribute public var type: String
+    @Element public var metaData: MetaData
+    @Element public var settings: Settings
+    @Element public var pageObjs: [PageObject]
+    @Element public var mediaObj: MediaObject
+    @Element public var questionSkillAssignments: QuestionSkillAssignments
     
     enum CodingKeys: String, CodingKey {
         case type = "Type"

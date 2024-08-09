@@ -18,6 +18,7 @@
 
 public struct ConditionVar: Codable {
     public var varEqual: VarEqual?
+    // TODO: add back
     //public var not: VarEqual?
     
     enum CodingKeys: String, CodingKey {

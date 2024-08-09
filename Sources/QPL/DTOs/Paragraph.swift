@@ -20,9 +20,9 @@ import XMLCoder
 
 // TODO: maybe use a LocalizableText proto here
 public struct Paragraph: Codable {
-    @Attribute var language: String
-    @Attribute var characteristic: String
-    @Element var value: String
+    @Attribute public var language: String
+    @Attribute public var characteristic: String
+    @Element public var value: String
     
     enum CodingKeys: String, CodingKey {
         case language = "Language"

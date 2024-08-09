@@ -19,8 +19,8 @@
 import XMLCoder
 
 public struct MediaAliasItem: Codable {
-    @Attribute var purpose: String
-    @Element var layout: Layout
+    @Attribute public var purpose: String
+    @Element public var layout: Layout
     
     enum CodingKeys: String, CodingKey {
         case purpose = "Purpose"
