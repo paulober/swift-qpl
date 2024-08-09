@@ -4,8 +4,8 @@ import QTI
 import ZIPFoundation
 
 public struct QPLFile {
-    let contentObject: QPLContentObject
-    let questestInterop: QuestestInterop
+    public let contentObject: QPLContentObject
+    public let questestInterop: QuestestInterop
 }
 
 public class QPLReader {
