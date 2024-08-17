@@ -18,17 +18,17 @@
 
 public struct ConditionVar: Codable {
     public var varEqual: VarEqual?
-    //public var not: VarEqual?
+    public var not: Not?
     
     enum CodingKeys: String, CodingKey {
         case varEqual = "varequal"
-        //case not = "not"
+        case not = "not"
     }
     
     public init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         
         varEqual = try container.decodeIfPresent(VarEqual.self, forKey: .varEqual)
-        //not = try container.decodeIfPresent(VarEqual.self, forKey: .not)
+        not = try container.decodeIfPresent(Not.self, forKey: .not)
     }
 }
