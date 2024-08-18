@@ -19,7 +19,7 @@
 import XMLCoder
 
 public struct TriggerQuestion: Codable {
-    @Attribute var id: Int
+    @Attribute public var id: Int
     
     enum CodingKeys: String, CodingKey {
         case id = "Id"

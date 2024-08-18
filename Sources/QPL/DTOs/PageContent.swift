@@ -19,10 +19,10 @@
 import XMLCoder
 
 public struct PageContent: Codable {
-    @Attribute var pcid: String
-    @Element var mediaObject: MediaObjectLite?
-    @Element var paragraph: Paragraph?
-    @Element var question: Question?
+    @Attribute public var pcid: String
+    @Element public var mediaObject: MediaObjectLite?
+    @Element public var paragraph: Paragraph?
+    @Element public var question: Question?
     
     enum CodingKeys: String, CodingKey {
         case pcid = "PCID"

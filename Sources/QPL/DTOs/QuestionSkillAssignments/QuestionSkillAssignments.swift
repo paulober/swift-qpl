@@ -19,7 +19,7 @@
 import XMLCoder
 
 public struct QuestionSkillAssignments: Codable {
-    @Element var triggerQuestions: [TriggerQuestion]
+    @Element public var triggerQuestions: [TriggerQuestion]
     
     enum CodingKeys: String, CodingKey {
         case triggerQuestions = "TriggerQuestion"

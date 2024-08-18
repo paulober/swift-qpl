@@ -19,7 +19,7 @@
 import XMLCoder
 
 public struct MediaAlias: Codable {
-    @Attribute var originId: String
+    @Attribute public var originId: String
     
     enum CodingKeys: String, CodingKey {
         case originId = "OriginId"

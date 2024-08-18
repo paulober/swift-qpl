@@ -19,12 +19,12 @@
 import XMLCoder
 
 public struct General: Codable {
-    @Attribute var structure: String
-    @Element var identifier: Identifier
-    @Element var title: LocalizableText
-    @Element var language: LocalizableText
-    @Element var description: LocalizableText
-    @Element var keyword: LocalizableText
+    @Attribute public var structure: String
+    @Element public var identifier: Identifier
+    @Element public var title: LocalizableText
+    @Element public var language: LocalizableText
+    @Element public var description: LocalizableText
+    @Element public var keyword: LocalizableText
     
     enum CodingKeys: String, CodingKey {
         case structure = "Structure"

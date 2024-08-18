@@ -4,8 +4,8 @@ import QTI
 import ZIPFoundation
 
 public struct QPLFile {
-    let contentObject: QPLContentObject
-    let questestInterop: QuestestInterop
+    public let contentObject: QPLContentObject
+    public let questestInterop: QuestestInterop
 }
 
 public class QPLReader {
@@ -71,6 +71,9 @@ public class QPLReader {
             ensureCleanup(targetPath: target.relativePath)
             throw QPLReaderError.failedToRead
         }
+        
+        // delete unpacked zip
+        ensureCleanup(targetPath: target.relativePath)
         
         return QPLFile(contentObject: qplContentObject, questestInterop: questestInterop)
     }

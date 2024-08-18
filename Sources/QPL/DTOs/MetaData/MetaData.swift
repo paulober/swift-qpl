@@ -19,7 +19,7 @@
 import XMLCoder
 
 public struct MetaData: Codable {
-    @Element var general: General
+    @Element public var general: General
     
     enum CodingKeys: String, CodingKey {
         case general = "General"

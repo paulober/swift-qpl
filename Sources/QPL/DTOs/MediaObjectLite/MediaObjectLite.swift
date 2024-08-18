@@ -19,8 +19,8 @@
 import XMLCoder
 
 public struct MediaObjectLite: Codable {
-    @Element var mediaAlias: MediaAlias
-    @Element var mediaAliasItem: MediaAliasItem
+    @Element public var mediaAlias: MediaAlias
+    @Element public var mediaAliasItem: MediaAliasItem
     
     enum CodingKeys: String, CodingKey {
         case mediaAlias = "MediaAlias"

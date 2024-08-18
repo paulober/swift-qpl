@@ -19,7 +19,7 @@
 import XMLCoder
 
 public struct Question: Codable {
-    @Attribute var qRef: String
+    @Attribute public var qRef: String
     
     enum CodingKeys: String, CodingKey {
         case qRef = "QRef"

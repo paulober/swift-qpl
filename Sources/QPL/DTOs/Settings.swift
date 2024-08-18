@@ -20,9 +20,9 @@ import XMLCoder
 
 public struct Settings: Codable {
     /// 0 = False 1 = True
-    @Element var showTaxonomies: Int
-    @Element var navTaxonomy: Int
-    @Element var skillService: Int
+    @Element public var showTaxonomies: Int
+    @Element public var navTaxonomy: Int
+    @Element public var skillService: Int
     
     enum CodingKeys: String, CodingKey {
         case showTaxonomies = "ShowTaxonomies"
