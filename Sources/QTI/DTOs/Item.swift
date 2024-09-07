@@ -24,7 +24,7 @@ public struct Item: Codable {
     public var maxAttempts: Int?
     
     public var qtiComment: String
-    public var duration: String
+    public var duration: String?
     public var itemMetadata: ItemMetadata
     public var presentation: Presentation
     public var resProcessing: ResProcessing
