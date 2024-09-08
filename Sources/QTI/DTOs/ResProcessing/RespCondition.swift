@@ -21,7 +21,7 @@ import XMLCoder
 public struct RespCondition: Codable {
     public var doContinue: String
     public var conditionVar: ConditionVar
-    public var setVar: SetVar
+    public var setVar: SetVar?
     public var displayFeedback: DisplayFeedback?
     
     func isContinue() -> Bool {

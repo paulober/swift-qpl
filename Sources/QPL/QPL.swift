@@ -41,7 +41,8 @@ public class QPLReader {
         guard zipFileURI.isFileURL && FileManager.default.fileExists(atPath: zipFileURI.absoluteURL.path(percentEncoded: false), isDirectory: &isNotADirectory) && !isNotADirectory.boolValue else {
             throw QPLReaderError.invalidZipURI
         }
-        var target = URL(fileURLWithPath: "qpl")
+        let tempDir = FileManager.default.temporaryDirectory
+        var target = tempDir.appendingPathComponent("qpl")
         if FileManager.default.fileExists(atPath: target.path(percentEncoded: false)) {
             try FileManager.default.removeItem(at: target)
         }
