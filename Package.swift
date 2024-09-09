@@ -17,7 +17,7 @@ let package = Package(
     ],
     dependencies: [
         .package(url: "https://github.com/CoreOffice/XMLCoder.git", .upToNextMajor(from: "0.17.1")),
-        .package(url: "https://github.com/weichsel/ZIPFoundation.git", .upToNextMajor(from: "0.9.19"))
+        .package(url: "https://github.com/gregcotten/ZIPFoundationModern", .upToNextMajor(from: "0.0.2"))
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
@@ -26,7 +26,7 @@ let package = Package(
             name: "QPL",
             dependencies: [
                 "XMLCoder",
-                "ZIPFoundation",
+                .product(name: "ZIPFoundation", package: "ZIPFoundationModern"),
                 "QTI"
             ]),
         .target(
