@@ -1,7 +1,6 @@
 import Foundation
 import XMLCoder
 import QTI
-import ZIPFoundation
 
 public struct QPLFile {
     public let contentObject: QPLContentObject
@@ -34,22 +33,18 @@ public class QPLReader {
         return nil
     }
     
-    public func readZip(zipFileURI: URL) throws -> QPLFile {
+    public func readFolder(unpackedQPLFolderURL: URL) throws -> QPLFile {
         var isNotADirectory = ObjCBool(false)
         // TODO: read consuming keyword
         // TODO: unzip into ./qpl
-        guard zipFileURI.isFileURL && FileManager.default.fileExists(atPath: zipFileURI.absoluteURL.path(percentEncoded: false), isDirectory: &isNotADirectory) && !isNotADirectory.boolValue else {
-            throw QPLReaderError.invalidZipURI
+        guard !unpackedQPLFolderURL.isFileURL && FileManager.default.fileExists(atPath: unpackedQPLFolderURL.absoluteURL.path(percentEncoded: false), isDirectory: &isNotADirectory) && isNotADirectory.boolValue else {
+            throw QPLReaderError.invalidFolderURI
         }
-        let tempDir = FileManager.default.temporaryDirectory
-        var target = tempDir.appendingPathComponent("qpl")
-        if FileManager.default.fileExists(atPath: target.path(percentEncoded: false)) {
-            try FileManager.default.removeItem(at: target)
-        }
-        try FileManager.default.unzipItem(at: zipFileURI, to: target)
+
+        var target = unpackedQPLFolderURL
         
         // find the file with qpl in its name
-        var contents = try FileManager.default.contentsOfDirectory(atPath: target.relativePath)
+        var contents = try FileManager.default.contentsOfDirectory(atPath: unpackedQPLFolderURL.relativePath)
         if contents.count == 1 {
             // probably means, the contents are nested in a separate folder
             target = target.appendingPathComponent(contents.first!)
@@ -94,6 +89,6 @@ public class QPLReader {
         case qplFileNotFound
         case qtiFileNotFound
         case failedToRead
-        case invalidZipURI
+        case invalidFolderURI
     }
 }
